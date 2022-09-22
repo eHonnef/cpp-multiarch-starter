@@ -1,0 +1,103 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 22,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "generator": "Unix Makefiles",
+      "hidden": true
+    },
+    {
+      "name": "linux",
+      "hidden": true,
+      "inherits": "default",
+      "cacheVariables": {
+        "PLATFORM": "linux"
+      }
+    },
+    {
+      "name": "linux-gcc",
+      "hidden": true,
+      "inherits": "linux",
+      "cacheVariables": {
+        "TOOLCHAIN": "gcc.cmake"
+      }
+    },
+    {
+      "name": "baremetal-arm",
+      "hidden": true,
+      "inherits": "default",
+      "cacheVariables": {
+        "PLATFORM": "baremetal-arm"
+      }
+    },
+    {
+      "name": "baremetal-arm-gcc",
+      "hidden": true,
+      "inherits": "baremetal-arm",
+      "cacheVariables": {
+        "TOOLCHAIN": "arm-none-eabi-gcc.cmake"
+      }
+    },
+    {
+      "name": "debug",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "coverage",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Coverage"
+      }
+    },
+    {
+      "name": "release",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "linux-gcc-debug",
+      "inherits": [
+        "linux-gcc",
+        "debug"
+      ]
+    },
+    {
+      "name": "linux-gcc-coverage",
+      "inherits": [
+        "linux-gcc",
+        "coverage"
+      ]
+    },
+    {
+      "name": "linux-gcc-release",
+      "inherits": [
+        "linux-gcc",
+        "release"
+      ]
+    },
+    {
+      "name": "baremetal-arm-gcc-debug",
+      "inherits": [
+        "baremetal-arm-gcc",
+        "debug"
+      ]
+    },
+    {
+      "name": "baremetal-arm-gcc-release",
+      "inherits": [
+        "baremetal-arm-gcc",
+        "release"
+      ]
+    }
+  ]
+}
